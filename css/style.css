@@ -1,0 +1,244 @@
+/* ============ DATE ABE — design system ============
+   Matchbox palette · IF Dürer / Vercetti / Cutepunk
+   No borders, no dividing lines: colour defines space.
+==================================================== */
+
+@font-face{font-family:'IF Durer';src:url(../assets/fonts/durer.otf) format('opentype');font-display:swap}
+@font-face{font-family:'Vercetti';src:url(../assets/fonts/vercetti.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Cutepunk';src:url(../assets/fonts/cutepunk.otf) format('opentype');font-display:swap}
+
+:root{
+  --orchid:#C57FC8;
+  --orchid-soft:#D9A6DA;
+  --sky:#55BEE6;
+  --butter:#F5C400;
+  --field:#159A46;
+  --brick:#D96324;
+  --royal:#2967C2;
+  --sea:#35A7A0;
+  --ink:#241A18;
+  --blush:#F2C9E2;
+  --paper:#F6EEE3;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--orchid);
+  color:var(--ink);
+  font-family:'Vercetti',-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+
+/* ---- disposable grain + light leaks over everything ---- */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.62'/%3E%3C/svg%3E")}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:89;opacity:.30;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.25' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)' opacity='0.8'/%3E%3C/svg%3E")}
+.leaks{position:fixed;inset:0;pointer-events:none;z-index:88}
+
+/* ---- type ---- */
+.display{font-family:'IF Durer',serif;font-weight:400;font-size:clamp(34px,9vw,52px);line-height:1.04;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+.display-light{color:var(--paper)}
+.eyebrow{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;opacity:.85}
+.eyebrow-light{color:var(--paper)}
+.strap{font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-top:22px}
+.body-copy{max-width:34em;margin-top:18px;font-size:16.5px}
+.body-copy.small{font-size:13.5px;margin-top:14px;opacity:.85}
+.body-copy.light{color:var(--paper)}
+.scrawl{font-family:'Cutepunk',cursive;font-size:16px;display:inline-block;transform:rotate(-3.5deg);margin-top:18px;color:var(--ink)}
+.scrawl-light{color:var(--paper)}
+
+/* ---- cupid mark (recolourable) ---- */
+.cupid{--c:var(--ink);width:96px;height:85px;
+  background:var(--c);
+  -webkit-mask:url(../assets/cupid.png) center/contain no-repeat;
+  mask:url(../assets/cupid.png) center/contain no-repeat}
+
+/* ---- buttons ---- */
+.btn{display:inline-block;font-family:'Vercetti',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  padding:15px 28px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;text-align:center;
+  transition:transform .15s ease}
+.btn:active{transform:scale(.96)}
+.btn-ink{background:var(--ink);color:var(--blush)}
+.btn-butter{background:var(--butter);color:var(--ink)}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+
+/* ---- splash gag ---- */
+.splash{position:fixed;inset:0;z-index:100;background:var(--orchid);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:32px 24px;gap:20px;
+  transition:opacity .5s ease, visibility .5s}
+.splash.dismissed{opacity:0;visibility:hidden}
+.splash-cupid{width:74px;height:66px}
+.splash-q{font-family:'IF Durer',serif;font-weight:400;font-size:clamp(30px,8.5vw,46px);line-height:1.05;text-transform:uppercase;max-width:9em}
+.splash-photo{width:min(64vw,240px);border-radius:16px;transform:rotate(-2deg)}
+.splash-btns{display:flex;gap:14px;margin-top:6px}
+.btn-yes{background:var(--ink);color:var(--blush);padding:16px 44px}
+.btn-no{background:var(--sky);color:var(--ink);padding:16px 34px;position:relative;transition:transform .18s ease}
+.splash-fine{font-size:11px;letter-spacing:.08em;opacity:.7}
+
+/* ---- cookie parody ---- */
+.cookiebar{position:fixed;left:12px;right:12px;bottom:12px;z-index:99;background:var(--paper);color:var(--ink);
+  border-radius:18px;padding:18px;font-size:14px;box-shadow:0 12px 40px rgba(36,26,24,.35);
+  animation:cookiein .5s ease}
+@keyframes cookiein{from{transform:translateY(120%)}to{transform:translateY(0)}}
+.cookie-btns{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.cookie-btns .btn{padding:11px 18px;font-size:12px}
+
+/* ---- panels: Il Capo sticky stack ---- */
+main{position:relative}
+.panel{position:sticky;top:0;min-height:100svh;padding:96px 24px 120px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-radius:26px 26px 0 0;overflow:hidden}
+.panel-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start}
+.footer{position:relative;z-index:2}
+
+/* section grounds — colour defines the space */
+.hero{background:var(--orchid);align-items:center;text-align:center}
+.about{background:var(--blush)}
+.badges{background:var(--butter);padding-top:70px}
+.facts{background:var(--royal)}
+.dateography{background:var(--paper)}
+.testimonials{background:var(--ink)}
+.gallery{background:var(--sky)}
+.pricing{background:var(--orchid-soft)}
+.faq{background:var(--paper)}
+.location{background:var(--field);color:var(--paper)}
+.reading{background:var(--orchid)}
+.contact{background:var(--ink)}
+
+/* ---- hero ---- */
+.hero-cupid{width:120px;height:106px;margin-bottom:26px}
+.hero-h{max-width:10em}
+.hero .btn{margin-top:30px}
+.hero-scrawl{margin-top:14px}
+.wave{position:absolute;bottom:-1px;left:0;right:0;height:58px;z-index:1}
+.wave-sky{background:var(--sky);border-radius:80% 65% 0 0/52px 42px 0 0}
+
+/* ---- photo panels ---- */
+.photo-panel{color:var(--paper)}
+.photo-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.photo-wash{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(197,127,200,.55),rgba(36,26,24,.25) 60%,rgba(36,26,24,.55))}
+.wash-dark{background:linear-gradient(180deg,rgba(36,26,24,.55),rgba(36,26,24,.35) 50%,rgba(36,26,24,.72))}
+.wash-orchid{background:linear-gradient(180deg,rgba(197,127,200,.45),rgba(41,103,194,.28) 60%,rgba(36,26,24,.5))}
+
+/* ---- badges ---- */
+.ticker{overflow:hidden;white-space:nowrap;margin:-20px -24px 40px;padding:14px 0;background:var(--ink)}
+.ticker-inner{display:inline-block;animation:tick 26s linear infinite}
+.ticker-inner span{color:var(--butter);font-size:12px;letter-spacing:.22em;margin-right:34px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.ticker-inner{animation:none}}
+.badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badge{border-radius:18px;padding:22px 18px;display:flex;flex-direction:column;gap:6px}
+.badge strong{font-family:'IF Durer',serif;font-size:34px;font-weight:400}
+.badge span{font-size:12.5px;line-height:1.4}
+.b-butter{background:var(--paper)}
+.b-sky{background:var(--sky)}
+.b-green{background:var(--field);color:var(--paper)}
+.b-brick{background:var(--brick);color:var(--paper)}
+
+/* ---- facts ---- */
+.fact-cards{display:flex;flex-direction:column;gap:18px;margin-top:26px;width:100%}
+.fact-card{background:var(--paper);color:var(--ink);border-radius:18px;overflow:hidden;transform:rotate(-1deg)}
+.fact-card:nth-child(2){transform:rotate(1.2deg)}
+.fact-card img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.fact-card figcaption{padding:16px 18px;font-size:14.5px}
+
+/* ---- dateography ---- */
+.timeline{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:0}
+.timeline li{padding:22px 0 22px 0;display:flex;flex-direction:column;gap:6px}
+.timeline li:nth-child(odd){background:linear-gradient(90deg,var(--blush) 0 100%);margin:0 -24px;padding-left:24px;padding-right:24px}
+.t-when{font-family:'IF Durer',serif;font-size:20px;text-transform:uppercase}
+.t-what{font-size:15px;max-width:36em}
+
+/* ---- testimonials ---- */
+.quote-cards{display:flex;flex-direction:column;gap:16px;margin-top:26px;width:100%}
+.quote{background:var(--paper);color:var(--ink);border-radius:18px;padding:20px;transform:rotate(-.8deg)}
+.quote:nth-child(2){transform:rotate(1deg);background:var(--butter)}
+.quote:nth-child(3){transform:rotate(-.4deg);background:var(--sky)}
+.quote p{font-size:17px;line-height:1.45}
+.quote footer{margin-top:10px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+
+/* ---- gallery ---- */
+.gal-grid{columns:2;column-gap:12px;margin-top:26px}
+.gal-grid img{width:100%;border-radius:14px;margin-bottom:12px;display:block}
+.gal-grid img:nth-child(3n){transform:rotate(1deg)}
+.gal-grid img:nth-child(3n+1){transform:rotate(-1deg)}
+
+/* ---- pricing ---- */
+.price-cards{display:flex;flex-direction:column;gap:16px;margin-top:26px;width:100%}
+.price-card{background:var(--paper);border-radius:20px;padding:26px 22px;position:relative}
+.price-card.featured{background:var(--butter);transform:rotate(-.6deg)}
+.price-card .flag{position:absolute;top:-12px;right:18px;background:var(--brick);color:var(--paper);
+  font-family:'Cutepunk',cursive;font-size:14px;padding:6px 14px;border-radius:999px;transform:rotate(2deg)}
+.price-card h3{font-family:'IF Durer',serif;font-weight:400;font-size:26px;text-transform:uppercase}
+.price-card .price{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:4px 0 14px;opacity:.8}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;margin-bottom:20px}
+.price-card li::before{content:"→ "}
+
+/* ---- faq ---- */
+.faq details{background:var(--blush);border-radius:16px;margin-top:12px;overflow:hidden}
+.faq details:first-of-type{margin-top:26px}
+.faq summary{cursor:pointer;padding:18px 20px;font-family:'IF Durer',serif;font-size:17px;text-transform:uppercase;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;font-size:20px}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 20px 18px;font-size:15px;max-width:36em}
+
+/* ---- location ---- */
+.map{position:relative;margin-top:26px;width:100%;max-width:420px}
+.map svg{width:100%;height:auto;display:block}
+.map-label{position:absolute;background:var(--paper);color:var(--ink);font-size:11.5px;
+  padding:6px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 14px rgba(36,26,24,.25)}
+.label-abe{top:42%;left:50%;transform:translate(-50%,-130%);background:var(--brick);color:var(--paper);font-family:'Cutepunk',cursive;font-size:13px}
+.label-pub1{bottom:10%;left:4%}
+.label-pub2{top:16%;right:2%}
+.label-pub3{top:52%;right:0}
+
+/* ---- reading ---- */
+.link-card{display:flex;flex-direction:column;gap:6px;background:var(--paper);color:var(--ink);
+  text-decoration:none;border-radius:18px;padding:20px;margin-top:16px;width:100%;max-width:440px;
+  transition:transform .15s ease}
+.link-card:hover{transform:rotate(-.5deg) scale(1.01)}
+.link-card strong{font-family:'IF Durer',serif;font-size:19px;text-transform:uppercase;font-weight:400}
+.link-card span{font-size:14px}
+
+/* ---- contact ---- */
+.contact-cupid{--c:var(--blush);width:86px;height:76px;margin-bottom:18px}
+form{display:flex;flex-direction:column;gap:14px;width:100%;max-width:440px;margin-top:24px}
+form label{display:flex;flex-direction:column;gap:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper)}
+form input,form textarea{font-family:'Vercetti',sans-serif;font-size:16px;padding:14px 16px;border:0;border-radius:14px;
+  background:var(--paper);color:var(--ink);width:100%}
+form input:focus-visible,form textarea:focus-visible{outline:3px solid var(--butter)}
+form .btn{margin-top:6px}
+.form-status{font-size:14px;color:var(--butter);min-height:1.4em}
+
+/* ---- footer ---- */
+.footer{background:var(--ink);color:var(--paper);text-align:center;padding:48px 24px 120px;font-size:13px;
+  border-radius:26px 26px 0 0;margin-top:-26px}
+.foot-cupid{--c:var(--butter);width:60px;height:53px;margin:0 auto 16px}
+.footer .tiny{font-size:11px;opacity:.6;margin-top:8px}
+
+/* ---- reveals ---- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---- desktop: same mobile layout, comfortable ---- */
+@media (min-width:700px){
+  .panel{padding:120px calc(50vw - 300px) 140px}
+  .badge-grid{grid-template-columns:repeat(4,1fr)}
+  .price-cards{flex-direction:row;align-items:stretch}
+  .price-card{flex:1}
+  .fact-cards{flex-direction:row}
+  .fact-card{flex:1}
+  .gal-grid{columns:3}
+  .ticker{margin:-40px calc(-50vw + 300px) 48px}
+  .timeline li:nth-child(odd){margin:0 calc(-50vw + 300px);padding-left:calc(50vw - 300px);padding-right:calc(50vw - 300px)}
+}
