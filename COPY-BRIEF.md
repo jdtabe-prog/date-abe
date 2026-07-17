@@ -1,41 +1,22 @@
-# COPY BRIEF — Date Abe
+# COPY BRIEF — Date Abe v2
 
-Every line below currently on the site is **example copy written to show shape and length — replace all of it with your own jokes.** Each slot has a `data-copy` id you (or Claude) can find in `index.html`. Voice guide: corporate *structure*, human *words*. Your article voice — self-deprecating, warm, puns played straight.
+Current site text is **example/holding copy — every line marked with a `data-copy` id in `index.html` is replaceable.** Send lines in any format ("splash-question: …"); Claude drops them in and pushes. Voice guide: corporate structure, human words, your article voice.
 
-## Splash & hero
-| Slot | Where | Guide | Current example |
-|---|---|---|---|
-| — | Splash question | Locked (works as is) | "Do you want to date this man?" |
-| `hero-slogan` | Hero headline, under cupid | 6–12 words, jokey corporate slogan | "Putting the U in seduction. And also several other letters." |
+## Open slots (v2)
 
-## About
-| `about-1` | First paragraph | 2–3 sentences. Who you are, the "role" you're filling | see site |
-| `about-2` | Second paragraph | Personality type + 2 real strengths + a dodge on weaknesses | see site |
-| `about-scrawl` | Handwritten aside | 3–6 words | "mum fact-checked this" |
+| Slot | Where | Current holding text |
+|---|---|---|
+| `splash-eyebrow` | Tiny caps line above heading | "Congratulations" |
+| `splash-heading` | Big opener | "Abe thinks you're cute." |
+| `splash-question` | The question above the buttons | "Fancy finding out why they call him Abe the Babe?" |
+| `splash-foot` | Reason-to-scroll line at bottom | "Real website. Real jokes. He made this instead of just texting you…" |
+| `fact-1..4 -big/-small` | Four fact cards | E9 / Scottish·Libra·ENFP / Mum therapist / Thought you were cute |
+| ticker items | Edit `#tickerInner` spans in index.html | Lives in London Fields · Scottish · Libra · ENFP · Thought you were cute · Mum is a relationship therapist |
+| `quote-1`, `quote-2` | Ex testimonials | "[Quote from ex #N — incoming]" |
+| voice note | `assets/audio/testimonial.mp3` | file missing — player shows "recording…" if tapped |
+| `price-1/2/3-bullets` | Package bullets (Coffee / Drinks / Surf holiday) | Claude's placeholders — replace with your Miro board bullets |
+| `faq-1..4-a` | FAQ answers | "[Abe is drafting a legally sound answer.]" |
+| `contact-intro` | Above the form | business-flutter line |
 
-## Trust badges (butter section)
-The four stat cards: number + caption each. Keep numbers absurd-but-plausible. Current: 4.8★ ex rating / 0 situationships / 92% reply rate / 1 career on being funny.
-
-## Achievements / fun facts (photo cards)
-| `fact-1` | Caption, Batsu photo 1 | Real fact, played straight: pro shows London & NY | see site |
-| `fact-2` | Caption, Batsu photo 2 | Edinburgh Fringe 2026 + one absurd detail | see site |
-| `fact-scrawl` | Aside | 4–7 words | "this counts as a stable career →" |
-
-## Dateography (3 timeline entries)
-Each: `date-N-when` (years) + `date-N-what` (1–2 sentences, HR language for a relationship). **These are the most personal slots — the examples are pure invention, definitely rewrite.**
-
-## Testimonials (3 quotes)
-`quote-1/2/3` + attribution lines. Ask real people! The gag is real quotes with corporate attributions ("— Ex #2, by text, unprompted").
-
-## FAQ (4 pairs)
-`faq-N-q` / `faq-N-a`. Current questions are keepers if you like: "Is he really like this in person?" / "What's the catch?" / "Red flags?" / "Why did you make this website?"
-
-## Contact
-| `contact-intro` | Above the form | 1–2 sentences, service-desk voice | see site |
-| — | Form field placeholders | tweak freely in index.html |
-
-## Scrawls elsewhere
-`gallery-scrawl` ("shot on a camera you bin afterwards"), `quote-scrawl`, plus the fixed ticker items in the badges section (edit in index.html, keep them SHORT and all-caps).
-
-## How to hand copy back
-Send lines in any format ("hero-slogan: …"). Claude drops them in and pushes.
+## Fixed/locked
+Splash yes/no gag (No dodges 4×, then "Fine. Go on then" — works), cookie gag + monster, carousel, map, form fields (Name / Phone / Instagram / How did you end up here / Your message to Abe).
