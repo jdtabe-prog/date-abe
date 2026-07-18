@@ -88,7 +88,7 @@ main{position:relative}
 .pricing{background:var(--royal)}
 .faq{background:var(--paper)}
 .contact{background:var(--ink)}
-.location{background:var(--sea);color:var(--paper)}
+.location{background:#FBCEA8;color:var(--ink)}
 
 /* ---- photo panels ---- */
 .photo-panel{color:var(--paper)}
@@ -97,9 +97,11 @@ main{position:relative}
 .wash-dark{background:linear-gradient(180deg,rgba(36,26,24,.6),rgba(36,26,24,.34) 50%,rgba(36,26,24,.72))}
 
 /* ---- splash ---- */
-.splash-cupid{width:112px;height:99px;margin-bottom:24px}
+.splash-cupid{width:100px;height:88px;margin-bottom:20px}
 .splash-h{max-width:9em}
-.splash-q{margin-top:22px;font-size:17px;max-width:21em}
+.splash-pun{font-size:clamp(20px,5.6vw,30px);margin-top:10px}
+.splash-photo{width:min(62vw,230px);border-radius:var(--r-card);transform:rotate(-2deg);margin-top:22px}
+.splash-q{margin-top:20px;font-size:17px;max-width:21em}
 .splash-btns{display:flex;gap:14px;margin-top:24px}
 #btnNo{position:relative;transition:transform .18s ease}
 .splash-foot{margin-top:auto;padding-top:40px;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -203,8 +205,8 @@ form .btn{margin-top:6px}
 /* ---- location / map ---- */
 .map{position:relative;margin-top:24px;width:100%;max-width:430px}
 .map svg{width:100%;height:auto;display:block}
-.map-cupid{--c:var(--paper);width:42px;height:37px;position:absolute;left:72.5%;top:60%;transform:translate(-50%,-112%)}
-.map-label{position:absolute;background:var(--paper);color:var(--ink);font-size:11px;
+.map-cupid{--c:var(--ink);width:42px;height:37px;position:absolute;left:72.5%;top:60%;transform:translate(-50%,-112%)}
+.map-label{position:absolute;background:var(--ink);color:var(--paper);font-size:11px;
   padding:5px 10px;border-radius:var(--r-btn);white-space:nowrap;box-shadow:0 4px 14px rgba(36,26,24,.25)}
 .label-abe{left:72.5%;top:63%;transform:translateX(-50%);background:var(--brick);color:var(--paper);font-family:'Cutepunk',cursive;font-size:13px}
 .label-pub1{left:8%;bottom:6%}
